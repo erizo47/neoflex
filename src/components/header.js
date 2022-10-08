@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 const Header = (props) => {
+    const {productCount, addedProducts} = props;
     const getProductAmount = () => {
         let productAmount = 0
         addedProducts.forEach(product => productAmount = productAmount + product.amount);
