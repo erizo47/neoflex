@@ -5,7 +5,7 @@ import {Shop} from "./pages/Shop";
 import {Cart} from "./pages/cart"
 import Footer from "./components/footer";
 import {useState} from "react";
-import {Route, Routes, BrowserRouter} from "react-router-dom";
+import {Route, Routes, BrowserRouter, Link} from "react-router-dom";
 
 const App = () => {
 
