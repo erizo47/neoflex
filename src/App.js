@@ -5,7 +5,7 @@ import {Shop} from "./pages/Shop";
 import {Cart} from "./pages/cart"
 import Footer from "./components/footer";
 import {useState} from "react";
-import {Route, Routes, BrowserRouter, Link} from "react-router-dom";
+import {Route, Routes, BrowserRouter, Link, Navigate} from "react-router-dom";
 
 const App = () => {
 
@@ -23,12 +23,25 @@ const App = () => {
     }
     const handleDescreaseProduct = (product) => {
         let clonedProducts = JSON.parse(JSON.stringify(addedProducts));
-        let foundedProduct = clonedProducts.find(item => item.id === product.id)
-        if(foundedProduct) {
-            foundedProduct.amount = foundedProduct.amount - 1
+        let foundedProductIndex = clonedProducts.findIndex(item => item.id === product.id)
+            if (foundedProductIndex > -1) {
+                if (clonedProducts[foundedProductIndex].amount === 1) {
+                    clonedProducts = clonedProducts
+                        .slice(0, foundedProductIndex)
+                        .concat(clonedProducts.slice(foundedProductIndex + 1, clonedProducts.length))
+                } else {
+                    clonedProducts[foundedProductIndex].amount -= 1
+                }
+                setAddedProducts(clonedProducts)
+            }
+    }
+    const handleDeleteProduct = (product) => {
+        let clonedProducts = JSON.parse(JSON.stringify(addedProducts));
+        let foundedProductIndex = clonedProducts.findIndex(item => item.id === product.id)
+        clonedProducts = clonedProducts
+                    .slice(0, foundedProductIndex)
+                    .concat(clonedProducts.slice(foundedProductIndex + 1, clonedProducts.length))
             setAddedProducts(clonedProducts)
-        }
-
     }
     const cartProductsSum = () => {
         let  productsSum = 0;
@@ -113,7 +126,9 @@ const App = () => {
                     <Header addedProducts={addedProducts}/>
                     <Routes>
                         <Route path={"/"} element={<Shop addProduct={handleAddProduct} headphones={headphones} wHeadphones={wirelessHeadphones} />} />
-                        <Route path={"/cart"} element={<Cart addedProducts={addedProducts} handleAddProduct={handleAddProduct} handleDescreaseProduct={handleDescreaseProduct} cartProductsSum={cartProductsSum}/>} />
+                        <Route path={"/cart"} element={<Cart addedProducts={addedProducts} handleDeleteProduct={handleDeleteProduct} handleAddProduct={handleAddProduct} handleDescreaseProduct={handleDescreaseProduct} cartProductsSum={cartProductsSum}/>} />
+                        <Route path="*" element={<Navigate to="/" replace />}
+                        />
                     </Routes>
                     <Footer />
                 </BrowserRouter>

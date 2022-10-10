@@ -1,10 +1,18 @@
+* {
+  text-decoration: none;
+}
 body {
   font-family: "Montserrat Medium";
   background-color: #EAEAEA ;
   display: flex;
+  flex-direction: column;
   justify-content:center;
+
 }
 .container {
+  display: flex;
+  margin: auto;
+  justify-content: center;
 }
 .navBar {
   width: 1135px;
@@ -14,6 +22,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
+  margin: auto;
 }
 .headerLogo{
   height: 30px;
@@ -52,8 +61,12 @@ body {
   margin: 10px;
 }
 .cartSvg {
-  margin: 10px
+  margin: 10px;
 }
+.cartSvg:hover svg path{
+  fill: #FFA542;
+}
+
 .App {
   text-align: center;
 }
@@ -81,8 +94,7 @@ body {
   width: 219px;
   margin: 50px 65px 0 65px;
 }
-.productInfo {
-}
+
 .productTitlePrice {
   display: flex;
   justify-content: space-between;
@@ -117,7 +129,6 @@ body {
   display: flex;
   width: 1135px;
   flex-wrap: wrap;
-  margin: auto;
 }
 
 .productBuyButton {
@@ -127,46 +138,73 @@ body {
   font-weight: 600;
   font-size: 17px;
 }
-.cartContainer {
-  width: 1135px;
-  margin: auto;
+.productBuyButton:active, .productBuyButton:focus {
+  outline: none;
+}
+.productBuyButton:hover {
+  cursor: pointer;
+  color: #FFA542;
+}
 
+
+
+.cartContainer {
+  width: 1110px;
+  margin: 0 auto 350px auto;
+  display: flex;
+  flex-direction: column;
+
+}
+.cartProductDelete {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 18px 28px 0 0;
+
+}
+.cartProductDeleteButton {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+.cartProductDeleteButton:hover svg path{
+  fill: #FFA542;
+}
+.cartProductDeleteButton:active svg path{
+  fill: #000000;
 }
 .cartInformation {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
 }
 .cartTitle {
   font-size: 20px;
   font-weight: 600;
   color: #838383;
-  margin-left: 22px;
 }
-.cartProductItem {
+
+.cartProduct {
   width:633px;
   height: 218px;
   background-color: #FFFFFF;
   border-radius: 30px;
   margin-bottom: 20px;
 }
-.cartProductItem img {
-  width: 146px;
-  max-height: 119px;
-  position: relative;
-  top: 20px;
+
+.cartProductItem {
+  display: flex;
+  flex-direction: row;
+  margin-left: 19px;
+  margin-top: -15px;
 }
-.cartProductItem svg {
-  position: relative;
-  left:585px;
-  bottom: 84px;
+.cartProductImage {
+  width: 146px;
+  height: 125px;
 }
 .cartItemInfo {
-  position: relative;
-  left: 188px;
-  bottom: 65px;
   display: grid;
+  margin: 41px 0 0 24px;
 }
 .cartItemInfoTitle {
   color: #1C1C27;
@@ -176,8 +214,20 @@ body {
 }
 .cartItemInfoPrice {
   color: #AAAAAA;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
+}
+.cartItemButtonsSum {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 17px 28px 0 20px;
+}
+.cartItemButtons {
+  display: flex;
+  width: 140px;
+  justify-content: space-between;
+  align-items: center;
 }
 .descreaseButton, .increaseButton {
   background-color: #FFA542;
@@ -186,52 +236,49 @@ body {
   border-radius: 50%;
   border-style: none;
 }
-.descreaseButton {
-  position: relative;
-  bottom: 17px;
-  left: 17px
+.descreaseButton:hover, .descreaseButton:active, .descreaseButton:focus {
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0px 0px 6px #AAAAAA;
 }
-.increaseButton {
-  position: relative;
-  left: 72px;
-  bottom: 7px;
+
+
+.increaseButton:hover, .increaseButton:active, .increaseButton:focus {
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0px 0px 6px #AAAAAA;
 }
 .minus {
-  position: absolute;
   width: 16px;
   height: 3px;
   background-color: #FFFFFF;
-  left: 7px;
-  bottom: 13px
+  position: relative;
+  left: 0.5px;
+  bottom: 0px;
 }
 .minusplus {
-  position: absolute;
   width: 16px;
   height: 3px;
   background-color: #FFFFFF;
-  left: 6px;
-  bottom: 14px
+  position: relative;
+  top: 8px;
+  left: 1.5px;
 }
 .plus {
   position: relative;
   width: 3px;
   height: 16px;
   background-color: #FFFFFF;
-  left: 7px;
+  left: 8px;
+  bottom: 1.5px;
 }
 .cartProductItemAmount {
-  position: relative;
-  left: 45px;
-  bottom: 10px;
   font-weight: 600;
   font-size: 17px;
 }
 .cartProductItemSum {
   font-size: 18px;
   font-weight: 600;
-  position: relative;
-  bottom: 43px;
-  left: 540px;
 }
 .cartAmount {
   display: flex;
@@ -258,16 +305,15 @@ body {
   background: #101010;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  position: relative;
-  bottom: 55px;
-  text-align: center;
+  margin-top: -55px;
+  display: flex;
 }
 .cartContinueTitle {
   font-weight: 600;
   font-size: 17px;
   color: #FFFFFF;
-  position: relative;
-  top: 20px;
+  margin: auto;
+  cursor: pointer;
 }
 .footer {
   width: 1110px;
@@ -308,4 +354,12 @@ body {
 }
 .footerSocialMedia svg{
   margin-right: 18px;
+}
+.footerCartLink, .footerCartLink:active {
+  color: #000000;
+  cursor: pointer;
+  text-decoration: none;
+}
+.footerCartLink:hover {
+  color: #FFA542;
 }

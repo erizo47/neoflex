@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react';
 import ProductItem from "./productItem";
+import {Link} from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -12,7 +13,7 @@ const Footer = () => {
                 </div>
                 <div className={"footerNav"}>
                     <a>Избранное</a>
-                    <a>Корзина</a>
+                    <Link to={"/cart"}><a className={"footerCartLink"}>Корзина</a></Link>
                     <a>Контакты</a>
                 </div>
                 <div className={"footerLang"}>

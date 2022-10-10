@@ -2,7 +2,7 @@ import React from 'react';
 import CartProductItem from "../components/cartProductItem";
 
 
-const Cart = ({addedProducts, handleAddProduct, handleDescreaseProduct, cartProductsSum}) => {
+const Cart = ({addedProducts, handleAddProduct, handleDescreaseProduct, cartProductsSum, handleDeleteProduct}) => {
 
     return (
 
@@ -10,7 +10,7 @@ const Cart = ({addedProducts, handleAddProduct, handleDescreaseProduct, cartProd
             <p className={"cartTitle"}>Корзина</p>
                 <div className={"cartInformation"}>
                     <div className={"cartList"}>
-                        {addedProducts.map((x) => <CartProductItem product={x} handleAddProduct={handleAddProduct} handleDescreaseProduct={handleDescreaseProduct}/>)}
+                        {addedProducts.map((x) => <CartProductItem product={x} handleDeleteProduct={handleDeleteProduct} handleAddProduct={handleAddProduct} handleDescreaseProduct={handleDescreaseProduct}/>)}
                     </div>
                     <div className={"cartMenu"}>
                         <div className={"cartAmount"}>
