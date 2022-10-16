@@ -24,8 +24,11 @@ body {
   padding: 0 10px;
   margin: 10px auto;
 }
-.svgLogo{
+.headerLogo{
   margin: auto 0;
+}
+.headerLogo:hover svg path{
+  fill: #FFA542;
 }
 .likeCounter{
   width: 17.4px;
@@ -329,6 +332,9 @@ body {
   box-sizing: border-box;
   padding: 29px;
   min-height:150px
+}
+.footerLogo:hover svg path{
+  fill: #FFA542;
 }
 .footerContent {
   margin: 0;
