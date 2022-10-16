@@ -21,13 +21,11 @@ body {
   display: flex;
   background: #EAEAEA;
   justify-content: space-between;
-  align-items: center;
   padding: 0 10px;
-  margin: auto;
+  margin: 10px auto;
 }
-.headerLogo{
-  height: 30px;
-  width: 60px
+.svgLogo{
+  margin: auto 0;
 }
 .likeCounter{
   width: 17.4px;
@@ -57,6 +55,8 @@ body {
 }
 .navSvgButtons {
   display: inline-flex;
+  margin: auto 0;
+  padding-top: 5px;
 }
 .likeSvg {
   margin: 10px;
