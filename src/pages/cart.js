@@ -9,9 +9,9 @@ const Cart = ({addedProducts, handleAddProduct, handleDescreaseProduct, cartProd
             <div className={"cartContainer"}>
             <p className={"cartTitle"}>Корзина</p>
                 <div className={"cartInformation"}>
-                    <div className={"cartList"}>
+                    {addedProducts.length ? <div className={"cartList"}>
                         {addedProducts.map((x) => <CartProductItem product={x} handleDeleteProduct={handleDeleteProduct} handleAddProduct={handleAddProduct} handleDescreaseProduct={handleDescreaseProduct}/>)}
-                    </div>
+                    </div> : <div className={"cartNoProducts"}><p>Вы ещё не добавили не одного товара</p></div> }
                     <div className={"cartMenu"}>
                         <div className={"cartAmount"}>
                             <div className={"cartAmountTitle"}>ИТОГО</div>
