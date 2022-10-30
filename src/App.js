@@ -127,8 +127,7 @@ const App = () => {
                     <Routes>
                         <Route path={"/"} element={<Shop addProduct={handleAddProduct} headphones={headphones} wHeadphones={wirelessHeadphones} />} />
                         <Route path={"/cart"} element={<Cart addedProducts={addedProducts} handleDeleteProduct={handleDeleteProduct} handleAddProduct={handleAddProduct} handleDescreaseProduct={handleDescreaseProduct} cartProductsSum={cartProductsSum}/>} />
-                        <Route path="*" element={<Navigate to="/" replace />}
-                        />
+                        <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                     <Footer />
                 </BrowserRouter>
