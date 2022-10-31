@@ -122,7 +122,7 @@ const App = () => {
      return (
             <div>
 
-                <BrowserRouter>
+                
                     <Header addedProducts={addedProducts}/>
                     <Routes>
                         <Route path={"/"} element={<Shop addProduct={handleAddProduct} headphones={headphones} wHeadphones={wirelessHeadphones} />} />
@@ -130,7 +130,7 @@ const App = () => {
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                     <Footer />
-                </BrowserRouter>
+               
 
             </div>
     );
